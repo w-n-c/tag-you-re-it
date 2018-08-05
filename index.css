@@ -1,0 +1,109 @@
+/* Global Font Settings */
+/*html {
+    font-size: 16px;
+}
+@media screen and (min-width: 900px) {
+    html {
+        font-size: 18px;
+    }
+}
+@media screen and (min-width: 1200px) {
+    html {
+        font-size: 20px;
+    }
+}*/
+@import url('https://fonts.googleapis.com/css?family=Asap');
+* {
+    font-size: inherit;
+    font-family: inherit;
+}
+
+html {
+    font-size: calc(1em + 1vw);
+    font-family: Asap, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    min-height: 100vh;
+}
+
+/** Collapsible Toggle Button **/
+svg {
+    height: 0.8em;
+}
+
+h2 button {
+    all: inherit;
+}
+
+h2 button:focus svg {
+    outline: 2px solid;
+}
+
+[aria-expanded="true"] .vert {
+    display: none;
+}
+
+[aria-expanded] rect {
+    fill: currentColor;
+}
+
+/* Todo List Styling: */
+
+ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h2 {
+    margin: 0.66em 0 0.25em 0;
+    display: inline-block;
+}
+/** empty state display toggle **/
+.empty-state, ul:empty {
+    display: none;
+}
+
+.empty-state + ul:empty {
+    display: block;
+}
+
+/** placeholder styling **/
+::placeholder {
+    color: #909;
+    font-style: italic;
+}
+
+/** live region **/
+.vh {
+    position: absolute !important;
+    clip-path: content-box;
+    padding:0 !important;
+    border:0 !important;
+    height:1 !important;
+    width:1 !important;
+    overflow: hidden;
+}
+
+/** checked completed styling **/
+
+:checked + label {
+  text-decoration: line-through;
+}
+
+/** to hide the refocus highlight of the list header when last itme is completed */
+
+[tabindex="-1"] { 
+    outline: none;
+}

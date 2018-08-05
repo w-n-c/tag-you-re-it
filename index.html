@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" lang="en">
+		<title>penultimate only to future versions of itself</title>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<main>
+			<h1>{{Today's}} Todo List</h1><!--may be part of nav, may be deleted.-->
+			<ul>
+				<!-- tabindex allows us to jump focus here upon completion of subtasks without making 
+				     an otherwise static entity focusable (there's css to hide the highlight) -->
+				<h2 tabindex="-1">{{list title}}</h2> <!--What to do if blank title?-->
+				<li><span><input type="checkbox" id="UUID-2"><label for="UUID-2">Make JSON API</label></span></li>
+				<li><span><input type="checkbox" id="UUID-3"><label for="UUID-3">Make Example</label></span></li>
+				<li><ul>
+					<li><span><input type="checkbox" id="UUID-5"><label for="UUID-5"></label><h2 tabindex="-1">sub-list</h2> <!--do we make this checkable?--></span></li>
+					<li><span><input type="checkbox" id="UUID-5"><label for="UUID-5">write recursive parser</label></span></li>
+					<li><span><input type="checkbox" id="UUID-6"><label for="UUID-6">finish todo list UI</label></span></li>
+				</ul></li>
+			</ul>
+			<form>
+				<input type="text" aria-invalid="true" aria-label="Write a new todo item" placeholder="E.g. Smile at 5 people">
+				<button type="submit" disabled>Add</button>
+			</form> 
+			<div role="status" aria-live="polite" class="vh"></div>
+		</main>
+		<!--<div class="backup">
+			<h1>06/16/18</h1>
+			<div class="empty-state">
+				<p>Your todo list is empty! Either you're new here or you've
+				accomplished everything you could want in life!
+				Either way, congratulations ;p</p>
+			</div>
+			<ul>
+			<li><section aria-labelledby="mobility-and-posture" class="workout">
+					<h2 id="mobility-and-posture" tabindex="-1">Mobility and Posture</h2>
+					<ul>
+						<li>
+							<input type="checkbox" id="UUID-2">
+							<label for="UUID-2">Wrist</label>
+						</li>
+						<li>
+							<input type="checkbox" id="UUID-3">
+							<label for="UUID-3">Ankle</label>
+						</li>
+						<li>
+							<input type="checkbox" id="UUID-4">
+							<label for="UUID-4">Elbow</label>
+						</li>
+					</ul>
+				</section></li>
+				<li><section class="meal" aria-labelledby="huel-shake">
+					<h2 id="huel-shake"><button aria-expanded="false">Huel Shake</button></h2>
+					<ul>
+						<li>254 g Huel Powder</li>
+						<li>Banana</li> <li>2 T nut butter</li>
+						<li>Fill to middle of handle in blender with non-dairy milk</li>
+					</ul>
+				</section></li>
+			</ul>
+			<form>
+				<input type="text" aria-invalid="true" aria-label="Write a new todo item" placeholder="E.g. Smile at 5 people">
+				<button type="submit" disabled>Add</button>
+			</form> 
+			<div role="status" aria-live="polite" class="vh"></div>
+		</div>-->
+		<footer>
+			<!--https://inclusive-components.design/collapsible-sections/-->
+		</footer>
+		<script src="index.js"></script>
+	</body>
+</html>
