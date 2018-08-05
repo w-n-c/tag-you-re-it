@@ -71,15 +71,41 @@
 // source: https://inclusive-components.design/a-todo-list/
 // respsonsible for changes to a todo item's state
 {
-    const todoName = document.querySelector('[type="text"]').value;
-    const liveRegion = document.querySelector('[role="status"]');
-    function addedFeedback(todoName) {
-        liveRegion.textContent = `${todoName} added.`;
-    }
-    addedFeedback(todoName);
+    const todoSubmitInput = document.querySelector('[type="text"]');
+    const todoSubmitBtn = todoSubmitInput.nextElementSibling;
+    const list = document.querySelector('main ul');
 
-    function deletedFeedback(todoName) {
-        liveRegion.textContent = `${todoName} deleted.`;
+    todoSubmitInput.addEventListener('input', e => {
+        if (todoSubmitInput.value) {
+            todoSubmitBtn.removeAttribute("disabled");
+        } else {
+            todoSubmitBtn.setAttribute("disabled", "");
+        }
+    });
+    
+    todoSubmitBtn.addEventListener('click', e => {
+        e.preventDefault();
+        const newTodoItem = todoSubmitInput.value;
+        todoSubmitInput.value = "";
+        const li = document.createElement("li");
+        const uuid = generateUUID();
+        li.innerHTML = `
+            <span><input type="checkbox" id="${uuid}"><label for="${uuid}">
+                ${newTodoItem}
+            </label></span>
+        `
+        list.appendChild(li);
+        addedFeedback(newTodoItem);
+    });
+
+    const liveRegion = document.querySelector('[role="status"]');
+
+    function addedFeedback(todoText) {
+        liveRegion.textContent = `${todoText} added.`;
+    }
+
+    function deletedFeedback(todoText) {
+        liveRegion.textContent = `${todoText} deleted.`;
     }
 }
 
